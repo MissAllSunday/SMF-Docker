@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      args:
+        - GITHUB_TOKEN
+    image:
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    image:
+    depends_on:
+      - php
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "33086:3306"
+    environment:
+      MYSQL_DATABASE: smf
+      MYSQL_ROOT_PASSWORD: ntf2XDxdLm4qUMBW
