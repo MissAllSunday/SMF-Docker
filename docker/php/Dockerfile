@@ -1,6 +1,7 @@
 FROM php:7.3-fpm
-COPY smf/ .
-RUN chmod 777 attachments/ && \
+COPY smf/ var/www/html/
+RUN cd /var/www/html && \
+    chmod 777 attachments/ && \
     chmod 777 avatars/ && \
     chmod 777 custom_avatar/ && \
     chmod 777 cache/ && \
