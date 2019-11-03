@@ -1,18 +1,12 @@
 FROM php:7.3-fpm
-COPY smf/ var/www/html/
-RUN cd /var/www/html && \
-    chmod 777 attachments/ && \
-    chmod 777 avatars/ && \
-    chmod 777 custom_avatar/ && \
-    chmod 777 cache/ && \
-    chmod 777 Packages/ && \
-    chmod 777 Smileys/ && \
-    chmod 777 Themes/ && \
-    chmod 777 agreement.txt && \
-    cp other/install.php install.php && \
+COPY smf/ .
+USER root
+RUN chmod +x /var/www/html
+RUN cp other/install.php install.php && \
     cp other/install_2-1_mysql.sql install_2-1_mysql.sql && \
     cp other/Settings.php Settings.php && \
-    chmod 777 Settings.php
+    chmod 777 Settings.php && \
+    cp Settings.php Settings_bak.php
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
