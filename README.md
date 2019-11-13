@@ -40,7 +40,7 @@ docker-compose -up -d
 Might take a while to build on the first try.  
 Open http://smf.local:88 (or the port you specified on your `.env file` ) with your fav browser and complete the SMF install process.
 
-Use `smf_mysql as the DB hostname`unless you modified the `CONTAINER_PREFIX` on your `.env var
+Use `smf_mysql` as the DB hostname unless you modified the `CONTAINER_PREFIX` on your `.env` var
 
 ##### Tested on Mac 10.14.5 and Ubuntu 18.04.3
 
