@@ -10,7 +10,7 @@ Configurable Docker image for SMF
 
 ```bash
 git clone git@github.com:MissAllSunday/SMF-Docker.git
-git clone git@github.com:SimpleMachines/SMF2.1.git smf
+git clone -b "v${SMF_VERSION}" --depth 1 ${SMF_REPO_URL} smf
 ```
 
 You can also clone an SMF 2.0 instead if you have access to it.
@@ -49,7 +49,7 @@ Use `smf_mysql` as the DB hostname unless you modified the `CONTAINER_PREFIX` on
 - If you modify anything inside `docker/php/DockerFile` make sure you run `docker-compose build to get the changes.
 
 #### Defaults
-- PHP 7.3
+- PHP 8.2
 - MySQL 5.7
 
 
